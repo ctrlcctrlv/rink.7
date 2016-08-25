@@ -110,7 +110,7 @@ There are two division operators, for separate purposes. `/` has lower precedenc
 13.524 m (length)
 ```
 
-These have lower precedence than multiplication and subtraction.
+These have lower precedence than multiplication and division.
 
 <a name="expressions.temperatures" />
 ## Temperatures
