@@ -131,7 +131,7 @@ Powers have higher precedence than multiplication.
 45359237/500000, approx. 90.71847 rock (mass)
 ```
 
-Allows you to define new units, which is only really useful in the right-hand side of a conversion.
+An equals expression is one which simultaneously defines a new unit with the right-hand side, names it using the left-hand side, and then produces it as its result. This is useful for customizing the output of the right-hand side of a conversion or converting into things that don't currently have units such as the amount of calories in a potato.
 
 <a name="expressions.custom" />
 ## Custom base units
@@ -140,7 +140,7 @@ Allows you to define new units, which is only really useful in the right-hand si
 240 minutes (time)
 ```
 
-These can be used to introduce "types" of a sort into calculations, which can be useful for reasoning about them.
+A unit name which is wrapped in quotation marks will not be checked for whether it exists when it is evaluated. This means you can wrap anything in quotes to in effect produce a new *base unit* for the purposes of a single calculation. This can be useful for doing calculations in terms of things which are otherwise dimensionless.
 
 <a name="prefixes" />
 # Units and prefixes
