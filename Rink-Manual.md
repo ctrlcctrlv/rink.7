@@ -201,6 +201,14 @@ Available temperature scales:
 - `degN`, `°N`, `degnewton`: **Newton**: A historical scale created by Isaac Newton.
 - `degDe`, `°De`, `delisle`: **Delisle**: A historical scale which, alongside the original Celsius scale, is reversed from the scales we are used to today. Its zero point is boiling water, and the freezing point of water is 150°De.
 
+Note that these temperature scale measurements are *absolute* measurements, not *differences*. If you wish to say something like "a difference of 1°C", then you must use the absolute scale for the scale you're using. These are:
+- For Celsius, kelvin `K`
+- For Fahrenheit, Rankine `degR`
+- For Réaumur, `reaumur_absolute` (absolute as in the zero point is absolute zero)
+- For Rømer, `romer_absolute`
+- For Newton, `newton_absolute`
+- For Delisle, `delisle_absolute`
+
 <a name="toplevel.finding" />
 ## Unit finding
 ```
