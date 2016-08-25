@@ -124,7 +124,7 @@ Numbers can be written with a fraction, and can be written in scientific notatio
 435483/390625, approx. 1.114836 m^2 (area)
 ```
 
-Powers have higher precedence than multiplication.
+Powers have higher precedence than multiplication. Both `^` and `**` can be used.
 
 <a name="expressions.inline" />
 ## Inline unit definitions
