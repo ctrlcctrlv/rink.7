@@ -284,5 +284,6 @@ The full list of units is specified in the file [`definitions.units`](https://gi
 - Boltzmann Constant `boltzmann`
 - Earth Gravity `gravity`, `force`
 - Earth Atmosphere Density `atm`
-- Density of water `water`
-- Density of mercury `Hg`
+- Pressure of a water column per length `water`
+- Density of water `waterdensity`
+- Pressure of a mercury column per length `Hg`
