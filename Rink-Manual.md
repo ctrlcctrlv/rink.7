@@ -93,14 +93,14 @@ Division currently has the same precedence as multiplication, and is evaluated l
 
 These have lower precedence than multiplication and subtraction.
 
-<a name="expressions.temperature" />
+<a name="expressions.temperatures" />
 ## Temperatures
 ```
 > 12 °C
 285.15 K (temperature)
 ```
 
-Temperature scales are operators with higher precedence than addition, and lower than multiplication.
+Temperature scales are operators with higher precedence than addition, and lower than multiplication. See the section on [temperature conversions](#toplevel.conversions.temperature) for more detailed syntax.
 
 <a name="expressions.numbers" />
 ## Numbers
