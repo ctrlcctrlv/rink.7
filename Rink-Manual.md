@@ -2,6 +2,31 @@
 
 Rink is a unit conversion and calculation tool which can be used for both small and simple arithmetic and more complex dimensionality analysis and other tasks. In this manual, each section will have examples of the discussed material at the top.
 
+# Table of Contents
+1. [Working with units](#working_with_units)
+2. [Expressions](#expressions)
+    1. [Multiplication](#expressions.multiplication)
+    2. [Division](#expressions.division)
+    3. [Addition, Subtraction](#expressions.addition)
+    4. [Temperatures](#expressions.temperatures)
+    5. [Numbers](#expressions.numbers)
+    6. [Powers](#expressions.powers)
+    7. [Inline unit definitions](#expressions.inline)
+    8. [Custom base units](#expressions.custom)
+3. [Units and prefixes](#prefixes)
+4. [Top-level statements](#toplevel)
+    1. [Conversions (->)](#toplevel.conversions)
+        1. [Unit lists](#toplevel.conversions.lists)
+        2. [Temperature](#toplevel.conversions.temperature)
+    2. [Unit finding](#toplevel.finding)
+    3. [Factorization](#toplevel.fact)
+5. [Dates](#dates)
+6. [Index of Units](#index)
+    1. [Official SI Derived Units](#index.derived)
+    2. [Constants](#index.constants)
+
+
+<a name="working_with_units" />
 # Working with units
 
 In order to understand Rink, an understanding of units themselves is required. Fundamentally, a *unit* is a way of assigning a concrete value to a specific *quantity* such as length, volume, energy, power, current, etc. Each *quantity* can be reduced into other quantities (for example, area is length x length), except for 7 *base units*.
@@ -34,8 +59,10 @@ Because each unit has a numerical part, it is possible to do normal math on them
 
 Because of this, units are essentially just numbers. As such, Rink is essentially a calculator which takes dimensionality into account.
 
+<a name="expressions" />
 # Expressions
 
+<a name="expressions.multiplication" />
 ## Multiplication
 ```
 > 3 4 m 5 s
@@ -46,6 +73,7 @@ Because of this, units are essentially just numbers. As such, Rink is essentiall
 
 Multiplication can be either by juxtaposition (that is, without any symbol) or using an explicit * operator.
 
+<a name="expressions.division" />
 ## Division
 ```
 > 10 km / (5 m)
@@ -54,6 +82,7 @@ Multiplication can be either by juxtaposition (that is, without any symbol) or u
 
 Division currently has the same precedence as multiplication, and is evaluated left to right.
 
+<a name="expressions.addition" />
 ## Addition, Subtraction
 ```
 > 1 * 2 + 1 * 2
@@ -64,6 +93,7 @@ Division currently has the same precedence as multiplication, and is evaluated l
 
 These have lower precedence than multiplication and subtraction.
 
+<a name="expressions.temperature" />
 ## Temperatures
 ```
 > 12 °C
@@ -72,6 +102,7 @@ These have lower precedence than multiplication and subtraction.
 
 Temperature scales are operators with higher precedence than addition, and lower than multiplication.
 
+<a name="expressions.numbers" />
 ## Numbers
 ```
 > 9999999999999
@@ -84,6 +115,7 @@ approx. 9.99999e12 (dimensionless)
 
 Numbers can be written with a fraction, and can be written in scientific notation. `1e24` is short for `1 * 10^24`.
 
+<a name="expressions.powers" />
 ## Powers
 ```
 > 12 ft^2
@@ -92,6 +124,7 @@ Numbers can be written with a fraction, and can be written in scientific notatio
 
 Powers have higher precedence than multiplication.
 
+<a name="expressions.inline" />
 ## Inline unit definitions
 ```
 > ton -> rock = 10kg
@@ -100,6 +133,7 @@ Powers have higher precedence than multiplication.
 
 Allows you to define new units, which is only really useful in the right-hand side of a conversion.
 
+<a name="expressions.custom" />
 ## Custom base units
 ```
 > 12 'core' hour / (3 'core') -> minutes
@@ -108,14 +142,17 @@ Allows you to define new units, which is only really useful in the right-hand si
 
 These can be used to introduce "types" of a sort into calculations, which can be useful for reasoning about them.
 
+<a name="prefixes" />
 # Units and prefixes
 
 Units can be prefixed with SI prefixes as well as a number of non-SI prefixes, such as: quarter, double, kibi, mebi, ⅞.
 
 Rink will accept plural units.
 
+<a name="toplevel" />
 # Top-level statements
 
+<a name="toplevel.conversions" />
 ## Conversion (->)
 ```
 > meter -> feet
@@ -130,6 +167,7 @@ The left hand side of the conversion is an arbitrary expression, and the right h
 - A temperature scale (celsius, fahrenheit, and several historical scales)
 - A unit list (e.g. hour;min;sec)
 
+<a name="toplevel.conversions.lists" />
 ### Unit lists
 ```
 > 2^17 seconds -> hour;min;sec
@@ -142,6 +180,7 @@ The left hand side of the conversion is an arbitrary expression, and the right h
 
 A unit list is a comma- or semicolon- delimited list of units with the same dimensionality, which can be used for breaking down numbers into more familiar quantities.
 
+<a name="toplevel.conversions.temperature" />
 ### Temperature
 ```
 > 12 °C
@@ -162,6 +201,7 @@ Available temperature scales:
 - `degN`, `°N`, `degnewton`: **Newton**: A historical scale created by Isaac Newton.
 - `degDe`, `°De`, `delisle`: **Delisle**: A historical scale which, alongside the original Celsius scale, is reversed from the scales we are used to today. Its zero point is boiling water, and the freezing point of water is 150°De.
 
+<a name="toplevel.finding" />
 ## Unit finding
 ```
 > units for power
@@ -173,6 +213,7 @@ tonrefrigeration, waterhorsepower, watt
 
 The `units for`, `units of`, and `units` commands will find more units which match the dimensionality of the one specified.
 
+<a name="toplevel.fact" />
 ## Factorization
 ```
 > factorize velocity
@@ -187,6 +228,7 @@ energy frequency;  current^2 resistance;  ...
 
 Unit factorization is what Rink names the process of finding quantities which can be multiplied together to produce the original quantity. This can be useful for discovering new ways to construct a unit.
 
+<a name="dates" />
 # Dates
 ```
 > #jan 01, 1970#
@@ -199,10 +241,12 @@ Unit factorization is what Rink names the process of finding quantities which ca
 
 In addition to handling units, Rink is also capable of doing some calculations with dates and times.
 
+<a name="index" />
 # Index of Units
 
 The full list of units is specified in the file [`definitions.units`](https://github.com/tiffany352/rink-rs/blob/master/definitions.units), but a small list of the most helpful ones will be listed here. It is intended that most units should be easy to guess the names of.
 
+<a name="index.derived" />
 ## Official SI Derived Units
 - Newton `N` (force)
 - Pascal `Pa` (pressure)
@@ -218,6 +262,7 @@ The full list of units is specified in the file [`definitions.units`](https://gi
 - Tesla `T` (magnetic flux density)
 - Hertz `Hz` (frequency)
 
+<a name="index.constants" />
 ## Constants
 - Pi `pi`
 - Speed of light `c`
