@@ -76,11 +76,13 @@ Multiplication can be either by juxtaposition (that is, without any symbol) or u
 <a name="expressions.division" />
 ## Division
 ```
-> 10 km / (5 m)
+> 10 km / 5 m
 2000 (dimensionless)
+> 1|2 m
+0.5 m (length)
 ```
 
-Division currently has the same precedence as multiplication, and is evaluated left to right.
+There are two division operators, for separate purposes. `/` has lower precedence than multiplication, and is used mainly for separating two halves of an entire expression. `|` has higher precedence than multiplication, and is used mainly for fractions of integers.
 
 <a name="expressions.addition" />
 ## Addition, Subtraction
@@ -136,7 +138,7 @@ An equals expression is one which simultaneously defines a new unit with the rig
 <a name="expressions.custom" />
 ## Custom base units
 ```
-> 12 'core' hour / (3 'core') -> minutes
+> 12 'core' hour / 3 'core' -> minutes
 240 minutes (time)
 ```
 
