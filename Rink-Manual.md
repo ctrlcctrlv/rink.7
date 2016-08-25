@@ -4,6 +4,7 @@ Rink is a unit conversion and calculation tool which can be used for both small 
 
 # Table of Contents
 1. [Working with units](#working_with_units)
+    1. [Weight vs Mass](#working_with_units.weight)
 2. [Expressions](#expressions)
     1. [Multiplication](#expressions.multiplication)
     2. [Division](#expressions.division)
@@ -58,6 +59,22 @@ Because each unit has a numerical part, it is possible to do normal math on them
 - Dividing two units is like multiplication, but taking away from the base units. A unit divided by itself is *dimensionless*, it has no quantity. Normal numbers are dimensionless.
 
 Because of this, units are essentially just numbers. As such, Rink is essentially a calculator which takes dimensionality into account.
+
+<a name="working_with_units.weight" />
+# Weight vs Mass
+It is important to remember the differences between mass and weight when working with mass and force units. Here are some tips:
+
+- When someone says "this weighs 2 pounds", they are saying it has a mass of 2 pounds. (Please don't try to correct them.)
+
+- Mass doesn't change depending on the amount of gravity, and directly influences momentum.
+
+- Mass is measured in kilograms or pounds.
+
+- Weight is measured in newtons or pound force (lbf).
+
+- A scale displays an estimate of mass by measuring the force applied to it divided by its calibrated measurement of the acceleration of gravity.
+
+- You can compute weight by multiplying mass by gravity.
 
 <a name="expressions" />
 # Expressions
