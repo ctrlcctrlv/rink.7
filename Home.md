@@ -1,1 +1,2 @@
-Welcome to the rink-rs wiki!
+# User Documentation
+[**Manual**](https://github.com/tiffany352/rink-rs/wiki/Rink-Manual)
