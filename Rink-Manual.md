@@ -288,6 +288,10 @@ The full list of units is specified in the file [`definitions.units`](https://gi
 - Henry `H` (inductance)
 - Tesla `T` (magnetic flux density)
 - Hertz `Hz` (frequency)
+- Lumen `lm` (luminous flux)
+- Lux `lx` (illuminance)
+- Gray `Gy` (radiation dose)
+- Katal `kat` (catalytic activity)
 
 <a name="index.constants" />
 ## Constants
