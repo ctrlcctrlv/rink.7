@@ -64,17 +64,19 @@ Because of this, units are essentially just numbers. As such, Rink is essentiall
 # Weight vs Mass
 It is important to remember the differences between mass and weight when working with mass and force units. Here are some tips:
 
-- When someone says "this weighs 2 pounds", they are saying it has a mass of 2 pounds. (Please don't try to correct them.)
-
 - Mass doesn't change depending on the amount of gravity, and directly influences momentum.
+
+- Weight is the amount of downward force on an object due to gravity.
 
 - Mass is measured in kilograms or pounds.
 
-- Weight is measured in newtons or pound force (lbf).
+- Weight is measured in newtons, kilogram force (kgf), or pound force (lbf).
 
-- A scale displays an estimate of mass by measuring the force applied to it divided by its calibrated measurement of the acceleration of gravity.
+- When someone says something weighs some amount of kg or lb, they're saying it has a weight of that number of kgf or lbf. This includes things like weight on the moon. (Don't correct anyone using this common figure of speech.)
 
-- You can compute weight by multiplying mass by gravity.
+- A scale displays an estimate of mass by measuring the force applied to it divided by its calibrated measurement of the acceleration of gravity. Its mass estimate would be incorrect on other planets unless it was recalibrated. You can also think of the displayed value as being weight in kgf or lbf.
+
+- You can compute weight by multiplying mass by gravity. Both kgf and lbf have earth gravity as part of their definition, so when you multiply kg or lb by gravity you get the same numerical values back, but with kgf or lbf units.
 
 <a name="expressions" />
 # Expressions
