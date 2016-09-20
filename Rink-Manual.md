@@ -25,6 +25,7 @@ Rink is a unit conversion and calculation tool which can be used for both small 
 6. [Index of Units](#index)
     1. [Official SI Derived Units](#index.derived)
     2. [Constants](#index.constants)
+    3. [Currencies](#index.currencies)
 
 
 <a name="working_with_units" />
@@ -42,7 +43,7 @@ The 7 *base units* (as well as their SI *units*):
 - Human-subjective brightness of light (candela)
 
 In addition, Rink defines a few non-SI base units:
-- Money (US dollar)
+- Money (Euro)
 - Information (bit)
 - Radian
 - Steradian
@@ -263,7 +264,7 @@ Unit factorization is what Rink names the process of finding quantities which ca
 > #jan 01, 1970#
 1970-01-01 00:00:00 +00:00 (46 years ago)
 > now - #jan 01, 1970# -> gigaseconds
-1.472083 gigas (time)
+1.472083 gigaseconds (time)
 > #2016-08-24# + 500 weeks
 2026-03-25 00:00:00 +00:00 (in 9 years)
 ```
@@ -310,3 +311,40 @@ The full list of units is specified in the file [`definitions.units`](https://gi
 - Pressure of a water column per length `water`
 - Density of water `waterdensity`
 - Pressure of a mercury column per length `Hg`
+
+<a name="index.currencies" />
+## Currencies
+These are only enabled if Rink was compiled with support for currencies.
+
+- EU Euro `EUR`, `€`
+- US dollar `USD`, `$`, `dollar`
+- Japan yen `JPY`, `¥`, `yen`
+- Bulgaria lev `BGN`
+- Czech koruna `CZK`
+- Denmark kroner `DKK`
+- UK pound `GBP`, `£`
+- Hungary forint `HUF`
+- Poland złoty `PLN`
+- Romania lei `RON`
+- Sweden krona `SEK`
+- Switzerland franc `CHF`
+- Norway krone `NOK`
+- Croatia kuna `HRK`
+- Russia ruble `RUB`, `₽`
+- Turkey lira `TRY`, `₺`
+- Australia dollar `AUD`, `A$`
+- Brazil real `BRL`, `R$`
+- Canada dollar `CAD`, `C$`
+- PRC yuan `CNY`
+- Hong Kong dollar `HKD`, `H$`
+- Indonesia rupiah `IDR`
+- Israel shekel `ILS`, `₪`
+- India rupee `INR`, `₹`
+- South Korea won `₩`
+- Mexico dollar `MXN`, `mex$`
+- Malaysia ringgit `MYR`
+- New Zealand dollar `NZD`, `NZ$`
+- Phillipines piso `PHP`, `₱`
+- Singapore dollar `SGD`, `S$`
+- Thailand baht `THB`, `฿`
+- South Africa rand `ZAR`
