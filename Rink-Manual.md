@@ -1,6 +1,9 @@
 # Introduction
 
-Rink is a unit conversion and calculation tool which can be used for both small and simple arithmetic and more complex dimensionality analysis and other tasks. In this manual, each section will have examples of the discussed material at the top.
+Rink is a unit conversion and calculation tool which can be used for
+both small and simple arithmetic and more complex dimensionality
+analysis and other tasks. In this manual, each section will have
+examples of the discussed material at the top.
 
 # Table of Contents
 1. [Working with units](#working_with_units)
@@ -33,7 +36,11 @@ Rink is a unit conversion and calculation tool which can be used for both small 
 <a name="working_with_units" />
 # Working with units
 
-In order to understand Rink, an understanding of units themselves is required. Fundamentally, a *unit* is a way of assigning a concrete value to a specific *quantity* such as length, volume, energy, power, current, etc. Each *quantity* can be reduced into other quantities (for example, area is length x length), except for 7 *base units*.
+In order to understand Rink, an understanding of units themselves is
+required. Fundamentally, a *unit* is a way of assigning a concrete
+value to a specific *quantity* such as length, volume, energy, power,
+current, etc. Each *quantity* can be reduced into other quantities
+(for example, area is length x length), except for 7 *base units*.
 
 The 7 *base units* (as well as their SI *units*):
 - Length (meters)
@@ -51,35 +58,64 @@ In addition, Rink defines a few non-SI base units:
 - Steradian
 - Musical note length (wholenote)
 
-Each of these quantities is treated as irreducible. The 7 base units are the foundations of SI, and customary systems as well. (Customary systems are defined in terms of SI.)
+Each of these quantities is treated as irreducible. The 7 base units
+are the foundations of SI, and customary systems as well. (Customary
+systems are defined in terms of SI.)
 
-Every *unit* is composed of two parts: A numerical value, and its *dimensionality*. The dimensionality is how a unit relates itself to the *base units*. Each base unit is raised to a certain power to construct the dimensionality. For example, the dimensionality of the quantity of acceleration is length^1 * time^-2 and then the rest of the base units are to the 0th power, which is to say that they do not matter. Two units are considered *conformable* if they have matching dimensionalities, and they can then be used in conversions.
+Every *unit* is composed of two parts: A numerical value, and its
+*dimensionality*. The dimensionality is how a unit relates itself to
+the *base units*. Each base unit is raised to a certain power to
+construct the dimensionality. For example, the dimensionality of the
+quantity of acceleration is length^1 * time^-2 and then the rest of
+the base units are to the 0th power, which is to say that they do not
+matter. Two units are considered *conformable* if they have matching
+dimensionalities, and they can then be used in conversions.
 
-Because each unit has a numerical part, it is possible to do normal math on them. 
+Because each unit has a numerical part, it is possible to do normal
+math on them.
 
-- Adding two units produces a new unit with matching dimensionality. 
-- Multiplying two units produces a new unit with its dimensionality as each base unit multiplied together, e.g. velocity (length time^-1) * hertz (time^-1) = acceleration (length time^-2).
-- Dividing two units is like multiplication, but taking away from the base units. A unit divided by itself is *dimensionless*, it has no quantity. Normal numbers are dimensionless.
+- Adding two units produces a new unit with matching dimensionality.
+- Multiplying two units produces a new unit with its dimensionality as
+  each base unit multiplied together, e.g. velocity (length time^-1) *
+  hertz (time^-1) = acceleration (length time^-2).
+- Dividing two units is like multiplication, but taking away from the
+  base units. A unit divided by itself is *dimensionless*, it has no
+  quantity. Normal numbers are dimensionless.
 
-Because of this, units are essentially just numbers. As such, Rink is essentially a calculator which takes dimensionality into account.
+Because of this, units are essentially just numbers. As such, Rink is
+essentially a calculator which takes dimensionality into account.
 
 <a name="working_with_units.weight" />
 # Weight vs Mass
-It is important to remember the differences between mass and weight when working with mass and force units. Here are some tips:
 
-- Mass doesn't change depending on the amount of gravity, and directly influences momentum.
+It is important to remember the differences between mass and weight
+when working with mass and force units. Here are some tips:
+
+- Mass doesn't change depending on the amount of gravity, and directly
+  influences momentum.
 
 - Weight is the amount of downward force on an object due to gravity.
 
 - Mass is measured in kilograms or pounds.
 
-- Weight is measured in newtons, kilogram force (kgf), or pound force (lbf).
+- Weight is measured in newtons, kilogram force (kgf), or pound force
+  (lbf).
 
-- When someone says something weighs some amount of kg or lb, they're saying it has a weight of that number of kgf or lbf. This includes things like weight on the moon. (Don't correct anyone using this common figure of speech.)
+- When someone says something weighs some amount of kg or lb, they're
+  saying it has a weight of that number of kgf or lbf. This includes
+  things like weight on the moon. (Don't correct anyone using this
+  common figure of speech.)
 
-- A scale displays an estimate of mass by measuring the force applied to it divided by its calibrated measurement of the acceleration of gravity. Its mass estimate would be incorrect on other planets unless it was recalibrated. You can also think of the displayed value as being weight in kgf or lbf.
+- A scale displays an estimate of mass by measuring the force applied
+  to it divided by its calibrated measurement of the acceleration of
+  gravity. Its mass estimate would be incorrect on other planets
+  unless it was recalibrated. You can also think of the displayed
+  value as being weight in kgf or lbf.
 
-- You can compute weight by multiplying mass by gravity. Both kgf and lbf have earth gravity as part of their definition, so when you multiply kg or lb by gravity you get the same numerical values back, but with kgf or lbf units.
+- You can compute weight by multiplying mass by gravity. Both kgf and
+  lbf have earth gravity as part of their definition, so when you
+  multiply kg or lb by gravity you get the same numerical values back,
+  but with kgf or lbf units.
 
 <a name="expressions" />
 # Expressions
@@ -99,13 +135,23 @@ It is important to remember the differences between mass and weight when working
 2 (dimensionless)
 ```
 
-Decimal numbers can be written with an integer component, an after-decimal-point component, and an exponent. Numbers can optionally have either `U+2009 THIN SPACE` or an underscore (`_`) for digit place separators.
+Decimal numbers can be written with an integer component, an
+after-decimal-point component, and an exponent. Numbers can optionally
+have either `U+2009 THIN SPACE` or an underscore (`_`) for digit place
+separators.
 
-The decimal point is always written with a dot (`.`), not a comma or other marker. If the decimal point is provided, it must be followed by more digits. (`1.` is not allowed.)
+The decimal point is always written with a dot (`.`), not a comma or
+other marker. If the decimal point is provided, it must be followed by
+more digits. (`1.` is not allowed.)
 
-The exponent starts with an `e`, followed by an integer with an optional sign. The exponent is shorthand for writing out `* 10^exp`. There can be no spaces within the number other than allowed digit separators. (`10 e10` is not allowed.)
+The exponent starts with an `e`, followed by an integer with an
+optional sign. The exponent is shorthand for writing out `*
+10^exp`. There can be no spaces within the number other than allowed
+digit separators. (`10 e10` is not allowed.)
 
-Hexadecimal, octal, and binary integers can be written using `0x`, `0o`, and `0b` prefixes, respectively. These literals do not currently support decimal points or exponents.
+Hexadecimal, octal, and binary integers can be written using `0x`,
+`0o`, and `0b` prefixes, respectively. These literals do not currently
+support decimal points or exponents.
 
 <a name="expressions.multiplication" />
 ## Multiplication
@@ -116,7 +162,8 @@ Hexadecimal, octal, and binary integers can be written using `0x`, `0o`, and `0b
 60 m s
 ```
 
-Multiplication can be either by juxtaposition (that is, without any symbol) or using an explicit * operator.
+Multiplication can be either by juxtaposition (that is, without any
+symbol) or using an explicit * operator.
 
 <a name="expressions.division" />
 ## Division
@@ -127,7 +174,10 @@ Multiplication can be either by juxtaposition (that is, without any symbol) or u
 0.5 m (length)
 ```
 
-There are two division operators, for separate purposes. `/` has lower precedence than multiplication, and is used mainly for separating two halves of an entire expression. `|` has higher precedence than multiplication, and is used mainly for fractions of integers.
+There are two division operators, for separate purposes. `/` has lower
+precedence than multiplication, and is used mainly for separating two
+halves of an entire expression. `|` has higher precedence than
+multiplication, and is used mainly for fractions of integers.
 
 <a name="expressions.addition" />
 ## Addition, Subtraction
@@ -147,7 +197,10 @@ These have lower precedence than multiplication and division.
 285.15 K (temperature)
 ```
 
-Temperature scales are operators with higher precedence than addition, and lower than multiplication. See the section on [temperature conversions](#toplevel.conversions.temperature) for more detailed syntax.
+Temperature scales are operators with higher precedence than addition,
+and lower than multiplication. See the section on
+[temperature conversions](#toplevel.conversions.temperature) for more
+detailed syntax.
 
 <a name="expressions.numbers" />
 ## Numbers
@@ -160,7 +213,8 @@ approx. 9.99999e12 (dimensionless)
 1.0e100 (dimensionless)
 ```
 
-Numbers can be written with a fraction, and can be written in scientific notation. `1e24` is short for `1 * 10^24`.
+Numbers can be written with a fraction, and can be written in
+scientific notation. `1e24` is short for `1 * 10^24`.
 
 <a name="expressions.powers" />
 ## Powers
@@ -169,7 +223,8 @@ Numbers can be written with a fraction, and can be written in scientific notatio
 435483/390625, approx. 1.114836 m^2 (area)
 ```
 
-Powers have higher precedence than multiplication. Both `^` and `**` can be used.
+Powers have higher precedence than multiplication. Both `^` and `**`
+can be used.
 
 <a name="expressions.inline" />
 ## Inline unit definitions
@@ -178,7 +233,11 @@ Powers have higher precedence than multiplication. Both `^` and `**` can be used
 45359237/500000, approx. 90.71847 rock (mass)
 ```
 
-An equals expression is one which simultaneously defines a new unit with the right-hand side, names it using the left-hand side, and then produces it as its result. This is useful for customizing the output of the right-hand side of a conversion or converting into things that don't currently have units such as the amount of calories in a potato.
+An equals expression is one which simultaneously defines a new unit
+with the right-hand side, names it using the left-hand side, and then
+produces it as its result. This is useful for customizing the output
+of the right-hand side of a conversion or converting into things that
+don't currently have units such as the amount of calories in a potato.
 
 <a name="expressions.custom" />
 ## Custom base units
@@ -187,12 +246,17 @@ An equals expression is one which simultaneously defines a new unit with the rig
 240 minutes (time)
 ```
 
-A unit name which is wrapped in quotation marks will not be checked for whether it exists when it is evaluated. This means you can wrap anything in quotes to in effect produce a new *base unit* for the purposes of a single calculation. This can be useful for doing calculations in terms of things which are otherwise dimensionless.
+A unit name which is wrapped in quotation marks will not be checked
+for whether it exists when it is evaluated. This means you can wrap
+anything in quotes to in effect produce a new *base unit* for the
+purposes of a single calculation. This can be useful for doing
+calculations in terms of things which are otherwise dimensionless.
 
 <a name="prefixes" />
 # Units and prefixes
 
-Units can be prefixed with SI prefixes as well as a number of non-SI prefixes, such as: quarter, double, kibi, mebi, ⅞.
+Units can be prefixed with SI prefixes as well as a number of non-SI
+prefixes, such as: quarter, double, kibi, mebi, ⅞.
 
 Rink will accept plural units.
 
@@ -208,10 +272,12 @@ Rink will accept plural units.
 53.6 °F (temperature)
 ```
 
-The left hand side of the conversion is an arbitrary expression, and the right hand side is one of:
+The left hand side of the conversion is an arbitrary expression, and
+the right hand side is one of:
 
 - An arbitrary expression
-- A temperature scale (celsius, fahrenheit, and several historical scales)
+- A temperature scale (celsius, fahrenheit, and several historical
+  scales)
 - A unit list (e.g. hour;min;sec)
 
 <a name="toplevel.conversions.lists" />
@@ -225,7 +291,9 @@ The left hand side of the conversion is an arbitrary expression, and the right h
 4 uscup, 3 ustablespoon, 1.884136 usteaspoon (volume)
 ```
 
-A unit list is a comma- or semicolon- delimited list of units with the same dimensionality, which can be used for breaking down numbers into more familiar quantities.
+A unit list is a comma- or semicolon- delimited list of units with the
+same dimensionality, which can be used for breaking down numbers into
+more familiar quantities.
 
 <a name="toplevel.conversions.temperature" />
 ### Temperature
@@ -238,17 +306,35 @@ A unit list is a comma- or semicolon- delimited list of units with the same dime
 285.15 K (temperature)
 ```
 
-Temperature scales in Rink are handled a little specially, because only Kelvin and Rankine (the absolute zero version of Fahrenheit) start at absolute zero. As such, they are *operators*, not units. These operators have looser binding precedence than multiplication, but tighter than addition.
+Temperature scales in Rink are handled a little specially, because
+only Kelvin and Rankine (the absolute zero version of Fahrenheit)
+start at absolute zero. As such, they are *operators*, not
+units. These operators have looser binding precedence than
+multiplication, but tighter than addition.
 
 Available temperature scales:
-- `degC`, `°C`, `celsius`, `℃`: **Celsius**, the standard scale in most countries.
-- `degF`, `°F`, `fahrenheit`, `℉`: **Fahrenheit**, the scale used in households across the United States.
-- `degRé`, `°Ré`, `degRe`, `°Re`, `réaumur`, `reaumur`: **Réaumur**: A historical scale once used throughout Europe.
-- `degRø`, `°Rø`, `degRo`, `°Ro`, `rømer`, `romer`: **Romer**: Yet another historical scale.
-- `degN`, `°N`, `degnewton`: **Newton**: A historical scale created by Isaac Newton.
-- `degDe`, `°De`, `delisle`: **Delisle**: A historical scale which, alongside the original Celsius scale, is reversed from the scales we are used to today. Its zero point is boiling water, and the freezing point of water is 150°De.
 
-Note that these temperature scale measurements are *absolute* measurements, not *differences*. If you wish to say something like "a difference of 1°C", then you must use the absolute scale for the scale you're using. These are:
+- `degC`, `°C`, `celsius`, `℃`:
+  **Celsius**, the standard scale in most countries.
+- `degF`, `°F`, `fahrenheit`, `℉`:
+  **Fahrenheit**, the scale used in households across the United States.
+- `degRé`, `°Ré`, `degRe`, `°Re`, `réaumur`, `reaumur`:
+  **Réaumur**: A historical scale once used throughout Europe.
+- `degRø`, `°Rø`, `degRo`, `°Ro`, `rømer`, `romer`:
+  **Romer**: Yet another historical scale.
+- `degN`, `°N`, `degnewton`:
+  **Newton**: A historical scale created by Isaac Newton.
+- `degDe`, `°De`, `delisle`:
+  **Delisle**: A historical scale which, alongside the original
+  Celsius scale, is reversed from the scales we are used to today. Its
+  zero point is boiling water, and the freezing point of water is
+  150°De.
+
+Note that these temperature scale measurements are *absolute*
+measurements, not *differences*. If you wish to say something like "a
+difference of 1°C", then you must use the absolute scale for the scale
+you're using. These are:
+
 - For Celsius, kelvin `K`
 - For Fahrenheit, Rankine `degR`
 - For Réaumur, `reaumur_absolute` (absolute as in the zero point is absolute zero)
@@ -265,13 +351,16 @@ Note that these temperature scale measurements are *absolute* measurements, not 
 7ps (dimensionless)
 ```
 
-Base conversions are specified with `base` followed by a number. Allowed bases are currently 2 through 62. There are some special base names which are also recognized:
+Base conversions are specified with `base` followed by a
+number. Allowed bases are currently 2 through 62. There are some
+special base names which are also recognized:
 
 - `hex`, `hexadecimal`, `base16` for base 16.
 - `oct`, `octal`, `base8` for base 8.
 - `bin`, `binary`, `base2` for base 2.
 
-Nothing else can appear within the right-hand side of the conversion when using base conversions.
+Nothing else can appear within the right-hand side of the conversion
+when using base conversions.
 
 <a name="toplevel.finding" />
 ## Unit finding
@@ -283,7 +372,8 @@ poncelet, sccm, sccs, scfh, scfm, slph, slpm, solarluminosity,
 tonrefrigeration, waterhorsepower, watt
 ```
 
-The `units for`, `units of`, and `units` commands will find more units which match the dimensionality of the one specified.
+The `units for`, `units of`, and `units` commands will find more units
+which match the dimensionality of the one specified.
 
 <a name="toplevel.fact" />
 ## Factorization
@@ -298,7 +388,10 @@ spectral_irradiance_wavelength volume;  temperature thermal_conductance;
 energy frequency;  current^2 resistance;  ...
 ```
 
-Unit factorization is what Rink names the process of finding quantities which can be multiplied together to produce the original quantity. This can be useful for discovering new ways to construct a unit.
+Unit factorization is what Rink names the process of finding
+quantities which can be multiplied together to produce the original
+quantity. This can be useful for discovering new ways to construct a
+unit.
 
 <a name="dates" />
 # Dates
@@ -311,12 +404,16 @@ Unit factorization is what Rink names the process of finding quantities which ca
 2026-03-25 00:00:00 +00:00 (in 9 years)
 ```
 
-In addition to handling units, Rink is also capable of doing some calculations with dates and times.
+In addition to handling units, Rink is also capable of doing some
+calculations with dates and times.
 
 <a name="index" />
 # Index of Units
 
-The full list of units is specified in the file [`definitions.units`](https://github.com/tiffany352/rink-rs/blob/master/definitions.units), but a small list of the most helpful ones will be listed here. It is intended that most units should be easy to guess the names of.
+The full list of units is specified in the file
+[`definitions.units`](https://github.com/tiffany352/rink-rs/blob/master/definitions.units),
+but a small list of the most helpful ones will be listed here. It is
+intended that most units should be easy to guess the names of.
 
 <a name="index.derived" />
 ## Official SI Derived Units
