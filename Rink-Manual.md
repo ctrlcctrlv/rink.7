@@ -6,19 +6,21 @@ Rink is a unit conversion and calculation tool which can be used for both small 
 1. [Working with units](#working_with_units)
     1. [Weight vs Mass](#working_with_units.weight)
 2. [Expressions](#expressions)
-    1. [Multiplication](#expressions.multiplication)
-    2. [Division](#expressions.division)
-    3. [Addition, Subtraction](#expressions.addition)
-    4. [Temperatures](#expressions.temperatures)
-    5. [Numbers](#expressions.numbers)
-    6. [Powers](#expressions.powers)
-    7. [Inline unit definitions](#expressions.inline)
-    8. [Custom base units](#expressions.custom)
+    1. [Writing Numbers](#expressions.numbers)
+    2. [Multiplication](#expressions.multiplication)
+    3. [Division](#expressions.division)
+    4. [Addition, Subtraction](#expressions.addition)
+    5. [Temperatures](#expressions.temperatures)
+    6. [Numbers](#expressions.numbers)
+    7. [Powers](#expressions.powers)
+    8. [Inline unit definitions](#expressions.inline)
+    9. [Custom base units](#expressions.custom)
 3. [Units and prefixes](#prefixes)
 4. [Top-level statements](#toplevel)
     1. [Conversions (->)](#toplevel.conversions)
         1. [Unit lists](#toplevel.conversions.lists)
         2. [Temperature](#toplevel.conversions.temperature)
+        3. [Bases](#toplevel.conversions.bases)
     2. [Unit finding](#toplevel.finding)
     3. [Factorization](#toplevel.fact)
 5. [Dates](#dates)
@@ -81,6 +83,29 @@ It is important to remember the differences between mass and weight when working
 
 <a name="expressions" />
 # Expressions
+
+<a name="expressions.numbers" />
+## Writing Numbers
+```
+> 10.1e2
+1010 (dimensionless)
+> 10
+10 (dimensionless)
+> 0x10
+16 (dimensionless)
+> 0o10
+8 (dimensionless)
+> 0b10
+2 (dimensionless)
+```
+
+Decimal numbers can be written with an integer component, an after-decimal-point component, and an exponent. Numbers can optionally have either `U+2009 THIN SPACE` or an underscore (`_`) for digit place separators.
+
+The decimal point is always written with a dot (`.`), not a comma or other marker. If the decimal point is provided, it must be followed by more digits. (`1.` is not allowed.)
+
+The exponent starts with an `e`, followed by an integer with an optional sign. The exponent is shorthand for writing out `* 10^exp`. There can be no spaces within the number other than allowed digit separators. (`10 e10` is not allowed.)
+
+Hexadecimal, octal, and binary integers can be written using `0x`, `0o`, and `0b` prefixes, respectively. These literals do not currently support decimal points or exponents.
 
 <a name="expressions.multiplication" />
 ## Multiplication
@@ -230,6 +255,23 @@ Note that these temperature scale measurements are *absolute* measurements, not 
 - For Rømer, `romer_absolute`
 - For Newton, `newton_absolute`
 - For Delisle, `delisle_absolute`
+
+<a name="toplevel.conversions.bases" />
+### Bases
+```
+> 1000 -> hex
+3e8 (dimensionless)
+> 10000 -> base 36
+7ps (dimensionless)
+```
+
+Base conversions are specified with `base` followed by a number. Allowed bases are currently 2 through 62. There are some special base names which are also recognized:
+
+- `hex`, `hexadecimal`, `base16` for base 16.
+- `oct`, `octal`, `base8` for base 8.
+- `bin`, `binary`, `base2` for base 2.
+
+Nothing else can appear within the right-hand side of the conversion when using base conversions.
 
 <a name="toplevel.finding" />
 ## Unit finding
