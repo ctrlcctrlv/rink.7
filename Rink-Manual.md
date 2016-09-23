@@ -349,18 +349,18 @@ you're using. These are:
 3e8 (dimensionless)
 > 10000 -> base 36
 7ps (dimensionless)
+> pi meter -> hex meter
+approx. 3.243f6a meter (length)
 ```
 
-Base conversions are specified with `base` followed by a
-number. Allowed bases are currently 2 through 62. There are some
-special base names which are also recognized:
+Base modifiers are specified with `base` followed by a number,
+followed by the rest of your conversion. Allowed bases are currently 2
+through 62. There are some special base names which are also
+recognized:
 
 - `hex`, `hexadecimal`, `base16` for base 16.
 - `oct`, `octal`, `base8` for base 8.
 - `bin`, `binary`, `base2` for base 2.
-
-Nothing else can appear within the right-hand side of the conversion
-when using base conversions.
 
 <a name="toplevel.finding" />
 ## Unit finding
