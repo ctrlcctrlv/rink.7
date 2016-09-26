@@ -26,6 +26,7 @@ examples of the discussed material at the top.
         3. [Bases](#toplevel.conversions.bases)
     2. [Unit finding](#toplevel.finding)
     3. [Factorization](#toplevel.fact)
+    4. [Search](#toplevel.search)
 5. [Dates](#dates)
 6. [Index of Units](#index)
     1. [Official SI Derived Units](#index.derived)
@@ -392,6 +393,16 @@ Unit factorization is what Rink names the process of finding
 quantities which can be multiplied together to produce the original
 quantity. This can be useful for discovering new ways to construct a
 unit.
+
+<a name="toplevel.search" />
+## Search
+```
+> search milk
+Search results: milk (density), mil (length), mile (length), mill (dimensionless), mi (length)
+```
+
+Allows you to search for units based on their names, returning up to 5
+results and showing the associated physical quantity of the unit.
 
 <a name="dates" />
 # Dates
