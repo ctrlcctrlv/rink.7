@@ -28,11 +28,12 @@ examples of the discussed material at the top.
     3. [Factorization](#toplevel.fact)
     4. [Search](#toplevel.search)
 5. [Dates](#dates)
-6. [Index of Units](#index)
+6. [Substances](#substances)
+7. [Index of Units](#index)
     1. [Official SI Derived Units](#index.derived)
-    2. [Constants](#index.constants)
-    3. [Currencies](#index.currencies)
-
+    2. [Substances](#index.substances)
+    3. [Constants](#index.constants)
+    4. [Currencies](#index.currencies)
 
 <a name="working_with_units" />
 # Working with units
@@ -418,6 +419,50 @@ results and showing the associated physical quantity of the unit.
 In addition to handling units, Rink is also capable of doing some
 calculations with dates and times.
 
+<a name="substances" />
+# Substances
+```
+> milk
+milk: density = 242 gram -> approx. 236588.2 millimeter^3
+> gallon milk
+milk: volume = approx. 3785411.7 millimeter^3; mass = 3.872 kilogram
+> egg
+egg: USA large egg. mass_shelled = 50 gram; mass_white = 30 gram;
+mass_yolk = 18.6 gram; volume = approx. 46824.75 millimeter^3;
+volume_white = approx. 29573.52 millimeter^3;
+volume_yolk = approx. 17251.22 millimeter^3
+> egg_shelled of kg egg
+20 (dimensionless)
+> gallon gasoline -> btu
+gasoline: volume = approx. 3785411.7 millimeter^3; energy_HHV = 125000 btu; energy_LHV = 115000 btu
+```
+
+Substances are how Rink organizes the physical properties of
+materials, objects, both countable and uncountable. Each substance has
+a name, an associated amount (defaulting to dimensionless 1), and a
+set of associated properties.
+
+Each property maps a named input into a named output and vice versa,
+and has a name itself. Countable objects often have properties with an
+input being dimensionless, so that you do not need to specify an
+amount to extract the property.
+
+The properties of a substance are accessed with the `of` operator
+(*property* **of** *substance*), which reads a multiplication expression
+following it, so you may have to wrap it in parentheses.
+
+Substances can be used in conversions, and can be added and multiplied
+to transform them. Multiplication will change the amount of the
+substance you have, so that you can write `kg egg` to specify one
+kilogram of eggs. Addition will combine certain properties (currently
+only `molar_mass`) to create a new substance entirely. Conversions of
+substances allow you to get multiple results simultaneously, for
+example if there are multiple different measurements of some property
+of the substance available.
+
+If the result of a calculation results in a substance, Rink will show
+all of the properties applicable for the given amount.
+
 <a name="index" />
 # Index of Units
 
@@ -446,11 +491,91 @@ intended that most units should be easy to guess the names of.
 - Gray `Gy` (radiation dose)
 - Katal `kat` (catalytic activity)
 
+<a name="index.substances" />
+## Substances
+- Water `water`
+- Mercury (Hg) `mercury`
+- Compounds and materials
+  - Ammonia `ammonia`
+  - Freon `freon`
+  - Tissue `tissue`
+  - Diamond `diamond`
+  - Graphite `graphite`
+  - Water ice `ice`
+  - Asphalt `asphalt`
+  - Brick `brick`
+  - Concrete `cocnrete`
+  - Silica glass `glass_silica`
+  - Flint glass `glass_flint`
+  - Pyrex glass `glass_pyrex`
+  - Gypsum `gypsum`
+  - Marble `marble`
+  - Sand `sand`
+  - Soil `soil`
+  - Air `air`
+- Particles
+  - Electron `electron`
+  - Proton `proton`
+  - Neutron `neutron`
+  - Deuterium nucleus `deuteron`
+  - Muon `muon`
+  - Helium nucleus `helion`
+  - Tau `tauparticle`
+  - Alpha `alphaparticle`
+  - Tritium nucleus `triton`
+- Celestial bodies
+  - Sun `sun`
+  - Mercury `mercury_planet`
+  - Venus `venus`
+  - Earth `earth`
+  - Earth's moon `moon`
+  - Mars `mars`
+  - Jupiter `jupiter`
+  - Saturn `saturn`
+  - Uranus `uranus`
+  - Neptune `neptune`
+  - Pluto `pluto`
+- Fuels
+  - Crude oil `oil`
+  - Coal `coal`
+  - Natural gas `naturalgas`
+  - Charcoal `charcoal`
+  - Wood `wood`
+  - Ethanol `ethanol`
+  - Diesel `diesel`
+  - Gasoline `gasoline`
+  - Heating oil `heating_oil`
+  - Fuel oil `fueloil`
+  - Propane `propane`
+  - Butane `butane`
+- Foods
+  - Butter `butter`
+  - Clarified butter `butter_clarified`
+  - Cocoa butter `cocoa_butter`
+  - Vegetable shortening `shortening`
+  - Vegetable oil `vegetable_oil`
+  - Olive oil `olive_oil`
+  - Flour `cakeflour`, `flour`, `breadflour`
+  - Corn starch `cornstarch`
+  - Cocoa `dutchcocoa`, `cocoa`
+  - Heavy cream `heavycream`
+  - Milk `milk`
+  - Sour cream `sourcream`
+  - Molasses `molasses`
+  - Corn syrup `corrnsyrup`
+  - Honey `honey`
+  - Sugar `sugar`
+  - Powdered sugar `powdered_sugar`
+  - Brown sugar `brownsugar_light`, `brownsugar_dark`
+  - Baking powder `baking_powder`
+  - Salt `salt`, `koshersalt`
+  - Egg `egg`
+- Elements 1 through 118, by name (e.g. `helium`)
+
 <a name="index.constants" />
 ## Constants
 - Pi `pi`
 - Speed of light `c`
-- Electron Charge `electroncharge`
 - Planck Constant `planck_constant`
 - Gravitational Constant `G`
 - Avogadro's number `avogadro`
@@ -458,9 +583,6 @@ intended that most units should be easy to guess the names of.
 - Boltzmann Constant `boltzmann`
 - Earth Gravity `gravity`, `force`
 - Earth Atmosphere Density `atm`
-- Pressure of a water column per length `water`
-- Density of water `waterdensity`
-- Pressure of a mercury column per length `Hg`
 
 <a name="index.currencies" />
 ## Currencies
