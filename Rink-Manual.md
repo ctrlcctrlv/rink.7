@@ -24,6 +24,7 @@ examples of the discussed material at the top.
         1. [Unit lists](#toplevel.conversions.lists)
         2. [Temperature](#toplevel.conversions.temperature)
         3. [Bases](#toplevel.conversions.bases)
+        4. [Digits](#toplevel.conversions.digits)
     2. [Unit finding](#toplevel.finding)
     3. [Factorization](#toplevel.fact)
     4. [Search](#toplevel.search)
@@ -363,6 +364,35 @@ recognized:
 - `hex`, `hexadecimal`, `base16` for base 16.
 - `oct`, `octal`, `base8` for base 8.
 - `bin`, `binary`, `base2` for base 2.
+
+<a name="toplevel.conversions.digits" />
+### Digits
+```
+> 2^128 -> digits
+340282366920938463463374607431768211456 (dimensionless)
+> 1/7 -> digits 50
+1/7, approx. 0.1428571428571428571428571428571428571428571428571428 (dimensionless)
+> googol -> digits
+10000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000 (dimensionless)
+```
+
+Digits modifiers are specified with `digits` optionally followed by a
+number, before the base modifier and before the rest of the
+conversion. Any number of digits are allowed, but large amounts may
+not succeed.
+
+The function of this modifier is that it forces the entire integer
+part to be printed (i.e., scientific notation will *not* be used), and
+then it prints an additional *n* digits, using the default if not
+specified.
+
+Trancendental numbers currently cannot be precisely represented, so
+asking for many digits of pi or e will produce unsatisfying results.
+
+Trigonometric and logarithmic functions are currently implemented
+using a machine-float fallback, because their results cannot be
+precisely represented as finite rationals. Because of this, asking for
+many digits of such numbers will also produce unsatisfying results.
 
 <a name="toplevel.finding" />
 ## Unit finding
