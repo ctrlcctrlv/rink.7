@@ -35,6 +35,7 @@ examples of the discussed material at the top.
     2. [Substances](#index.substances)
     3. [Constants](#index.constants)
     4. [Currencies](#index.currencies)
+    5. [Functions](#index.functions)
 
 <a name="working_with_units" />
 # Working with units
@@ -650,3 +651,32 @@ These are only enabled if Rink was compiled with support for currencies.
 - Singapore dollar `SGD`, `S$`
 - Thailand baht `THB`, `฿`
 - South Africa rand `ZAR`
+
+<a name="index.functions" />
+## Functions
+Currently, all of these result in machine float fallback, because
+their results are real numbers that cannot be precisely represented as
+rationals.
+
+- `sqrt(x)`: Square root, √x.
+- `exp(x)`: The exponential function, e^x.
+- `ln(x)`: The natural logarithm, log_e(x).
+- `log(x,y)`: Logarithm in base *y*, log_y(x).
+- `log2(x)`: Logarithm in base 2, log_2(x).
+- `log10(x)`: Logarithm in base 10, log_10(x).
+- `hypot(x,y)`: The length of the hypotenuse of a right-angle triangle
+  given adjacent edges of length x and y.
+- `sin(x)`: The sine function.
+- `cos(x)`: The cosine function.
+- `tan(x)`: The tangent function.
+- `asin(x)`: Inverse sine, or arcsine.
+- `acos(x)`: Inverse cosine, or arccosine.
+- `atan(x)`: Inverse tangent, or arctangent.
+- `atan2(x, y)`: Four-quadrant arctangent, which can be used to
+  reverse sine+cosine back into an angle.
+- `sinh(x)`: Hyperbolic sine.
+- `cosh(x)`: Hyperbolic cosine.
+- `tanh(x)`: Hyperbolic tangent.
+- `asinh(x)`: Inverse hyperbolic sine function.
+- `acosh(x)`: Inverse hyperbolic cosine function.
+- `atanh(x)`: Inverse hyperbolic tangent function.
