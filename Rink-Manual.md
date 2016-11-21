@@ -357,7 +357,7 @@ approx. 3.243f6a meter (length)
 
 Base modifiers are specified with `base` followed by a number,
 followed by the rest of your conversion. Allowed bases are currently 2
-through 62. There are some special base names which are also
+through 36. There are some special base names which are also
 recognized:
 
 - `hex`, `hexadecimal`, `base16` for base 16.
