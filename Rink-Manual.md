@@ -6,6 +6,7 @@ analysis and other tasks. In this manual, each section will have
 examples of the discussed material at the top.
 
 # Table of Contents
+
 1. [Working with units](#working_with_units)
     1. [Weight vs Mass](#working_with_units.weight)
 2. [Expressions](#expressions)
@@ -38,6 +39,7 @@ examples of the discussed material at the top.
     5. [Functions](#index.functions)
 
 <a name="working_with_units" />
+
 # Working with units
 
 In order to understand Rink, an understanding of units themselves is
@@ -90,6 +92,7 @@ Because of this, units are essentially just numbers. As such, Rink is
 essentially a calculator which takes dimensionality into account.
 
 <a name="working_with_units.weight" />
+
 # Weight vs Mass
 
 It is important to remember the differences between mass and weight
@@ -122,9 +125,11 @@ when working with mass and force units. Here are some tips:
   but with kgf or lbf units.
 
 <a name="expressions" />
+
 # Expressions
 
 <a name="expressions.numbers" />
+
 ## Writing Numbers
 ```
 > 10.1e2
@@ -158,6 +163,7 @@ Hexadecimal, octal, and binary integers can be written using `0x`,
 support decimal points or exponents.
 
 <a name="expressions.multiplication" />
+
 ## Multiplication
 ```
 > 3 4 m 5 s
@@ -170,7 +176,9 @@ Multiplication can be either by juxtaposition (that is, without any
 symbol) or using an explicit * operator.
 
 <a name="expressions.division" />
+
 ## Division
+
 ```
 > 10 km / 5 m
 2000 (dimensionless)
@@ -184,7 +192,9 @@ halves of an entire expression. `|` has higher precedence than
 multiplication, and is used mainly for fractions of integers.
 
 <a name="expressions.addition" />
+
 ## Addition, Subtraction
+
 ```
 > 1 * 2 + 1 * 2
 4 (dimensionless)
@@ -195,7 +205,9 @@ multiplication, and is used mainly for fractions of integers.
 These have lower precedence than multiplication and division.
 
 <a name="expressions.temperatures" />
+
 ## Temperatures
+
 ```
 > 12 °C
 285.15 K (temperature)
@@ -207,7 +219,9 @@ and lower than multiplication. See the section on
 detailed syntax.
 
 <a name="expressions.numbers" />
+
 ## Numbers
+
 ```
 > 9999999999999
 approx. 9.99999e12 (dimensionless)
@@ -221,7 +235,9 @@ Numbers can be written with a fraction, and can be written in
 scientific notation. `1e24` is short for `1 * 10^24`.
 
 <a name="expressions.powers" />
+
 ## Powers
+
 ```
 > 12 ft^2
 435483/390625, approx. 1.114836 m^2 (area)
@@ -230,8 +246,10 @@ scientific notation. `1e24` is short for `1 * 10^24`.
 Powers have higher precedence than multiplication. Both `^` and `**`
 can be used.
 
-<a name="expressions.inline" />
+<a name="expressions.inline" /> 
+
 ## Inline unit definitions
+
 ```
 > ton -> rock = 10kg
 45359237/500000, approx. 90.71847 rock (mass)
@@ -244,7 +262,9 @@ of the right-hand side of a conversion or converting into things that
 don't currently have units such as the amount of calories in a potato.
 
 <a name="expressions.custom" />
+
 ## Custom base units
+
 ```
 > 12 'core' hour / 3 'core' -> minutes
 240 minutes (time)
@@ -257,6 +277,7 @@ purposes of a single calculation. This can be useful for doing
 calculations in terms of things which are otherwise dimensionless.
 
 <a name="prefixes" />
+
 # Units and prefixes
 
 Units can be prefixed with SI prefixes as well as a number of non-SI
@@ -265,10 +286,13 @@ prefixes, such as: quarter, double, kibi, mebi, ⅞.
 Rink will accept plural units.
 
 <a name="toplevel" />
+
 # Top-level statements
 
 <a name="toplevel.conversions" />
+
 ## Conversion (->)
+
 ```
 > meter -> feet
 3.280839 foot (length)
@@ -285,7 +309,9 @@ the right hand side is one of:
 - A unit list (e.g. hour;min;sec)
 
 <a name="toplevel.conversions.lists" />
+
 ### Unit lists
+
 ```
 > 2^17 seconds -> hour;min;sec
 36 hour, 24 minute, 32 s (time)
@@ -300,7 +326,9 @@ same dimensionality, which can be used for breaking down numbers into
 more familiar quantities.
 
 <a name="toplevel.conversions.temperature" />
+
 ### Temperature
+
 ```
 > 12 °C
 285.15 K (temperature)
@@ -347,7 +375,9 @@ you're using. These are:
 - For Delisle, `delisle_absolute`
 
 <a name="toplevel.conversions.bases" />
+
 ### Bases
+
 ```
 > 1000 -> hex
 3e8 (dimensionless)
@@ -367,7 +397,9 @@ recognized:
 - `bin`, `binary`, `base2` for base 2.
 
 <a name="toplevel.conversions.digits" />
+
 ### Digits
+
 ```
 > 2^128 -> digits
 340282366920938463463374607431768211456 (dimensionless)
@@ -396,7 +428,9 @@ precisely represented as finite rationals. Because of this, asking for
 many digits of such numbers will also produce unsatisfying results.
 
 <a name="toplevel.finding" />
+
 ## Unit finding
+
 ```
 > units for power
 Units for kg m^2 / s^3 (power): VA, airwatt, boilerhorsepower, brhorsepower,
@@ -409,7 +443,9 @@ The `units for`, `units of`, and `units` commands will find more units
 which match the dimensionality of the one specified.
 
 <a name="toplevel.fact" />
+
 ## Factorization
+
 ```
 > factorize velocity
 Factorizations: velocity;  frequency length;  area viscosity;
@@ -427,7 +463,9 @@ quantity. This can be useful for discovering new ways to construct a
 unit.
 
 <a name="toplevel.search" />
+
 ## Search
+
 ```
 > search milk
 Search results: milk (density), mil (length), mile (length), mill (dimensionless), mi (length)
@@ -437,7 +475,9 @@ Allows you to search for units based on their names, returning up to 5
 results and showing the associated physical quantity of the unit.
 
 <a name="dates" />
+
 # Dates
+
 ```
 > #jan 01, 1970#
 1970-01-01 00:00:00 +00:00 (46 years ago)
@@ -451,7 +491,9 @@ In addition to handling units, Rink is also capable of doing some
 calculations with dates and times.
 
 <a name="substances" />
+
 # Substances
+
 ```
 > milk
 milk: density = 242 gram -> approx. 236588.2 millimeter^3
@@ -495,6 +537,7 @@ If the result of a calculation results in a substance, Rink will show
 all of the properties applicable for the given amount.
 
 <a name="index" />
+
 # Index of Units
 
 The full list of units is specified in the file
@@ -503,7 +546,9 @@ but a small list of the most helpful ones will be listed here. It is
 intended that most units should be easy to guess the names of.
 
 <a name="index.derived" />
+
 ## Official SI Derived Units
+
 - Newton `N` (force)
 - Pascal `Pa` (pressure)
 - Joule `J` (energy)
@@ -523,7 +568,9 @@ intended that most units should be easy to guess the names of.
 - Katal `kat` (catalytic activity)
 
 <a name="index.substances" />
+
 ## Substances
+
 - Water `water`
 - Mercury (Hg) `mercury`
 - Compounds and materials
@@ -604,7 +651,9 @@ intended that most units should be easy to guess the names of.
 - Elements 1 through 118, by name (e.g. `helium`)
 
 <a name="index.constants" />
+
 ## Constants
+
 - Pi `pi`
 - Speed of light `c`
 - Planck Constant `planck_constant`
@@ -616,7 +665,9 @@ intended that most units should be easy to guess the names of.
 - Earth Atmosphere Density `atm`
 
 <a name="index.currencies" />
+
 ## Currencies
+
 These are only enabled if Rink was compiled with support for currencies.
 
 - EU Euro `EUR`, `€`
@@ -653,7 +704,9 @@ These are only enabled if Rink was compiled with support for currencies.
 - South Africa rand `ZAR`
 
 <a name="index.functions" />
+
 ## Functions
+
 Currently, all of these result in machine float fallback, because
 their results are real numbers that cannot be precisely represented as
 rationals.
