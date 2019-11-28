@@ -63,6 +63,7 @@ In addition, Rink defines a few non-SI base units:
 - Radian
 - Steradian
 - Musical note length (wholenote)
+- Biological activity (IU)
 
 Each of these quantities is treated as irreducible. The 7 base units
 are the foundations of SI, and customary systems as well. (Customary
