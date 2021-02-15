@@ -31,7 +31,8 @@ examples of the discussed material at the top.
     4. [Search](#toplevel.search)
 5. [Dates](#dates)
 6. [Substances](#substances)
-7. [Index of Units](#index)
+7. [Config File](#config)
+8. [Index of Units](#index)
     1. [Official SI Derived Units](#index.derived)
     2. [Substances](#index.substances)
     3. [Constants](#index.constants)
@@ -536,6 +537,36 @@ of the substance available.
 
 If the result of a calculation results in a substance, Rink will show
 all of the properties applicable for the given amount.
+
+<a name="config" />
+
+# Config File
+
+Rink's CLI has a config file that allows customizing some functionality. The available options and their default values can be seen here:
+
+```toml
+[rink]
+# Used for the interactive REPL mode.
+prompt = "> "
+
+[currency]
+# Currency fetching can be disabled for those that don't want it.
+enabled = true
+# Allows pointing to alternate Rink-Web instances, or to any other API that offers a compatible format.
+endpoint = "https://rinkcalc.app/data/currency.json"
+# Accepts common suffixes like ms, s, h, d, y.
+timeout = "2s"
+cache_duration = "1h"
+```
+
+The location of the config file varies by operating system.
+
+| OS      | Location                            | Example                                             |
+| ------- | ----------------------------------- | --------------------------------------------------- |
+| Linux   | `$XDG_CONFIG_HOME/rink/config.toml` | `/home/tiffany/.config/rink/config.toml`            |
+| Windows | `{FOLDERID_RoamingAppData}`         | `C:\Users\Tiffany\AppData\Roaming\rink\config.toml` |
+| macOS   | `$HOME/Library/Application Support` | `/Users/Tiffany/Library/Application Support`        |
+
 
 <a name="index" />
 
