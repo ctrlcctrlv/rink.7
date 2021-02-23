@@ -561,12 +561,11 @@ cache_duration = "1h"
 
 The location of the config file varies by operating system.
 
-| OS      | Location                            | Example                                             |
-| ------- | ----------------------------------- | --------------------------------------------------- |
-| Linux   | `$XDG_CONFIG_HOME/rink/config.toml` | `/home/tiffany/.config/rink/config.toml`            |
-| Windows | `{FOLDERID_RoamingAppData}`         | `C:\Users\Tiffany\AppData\Roaming\rink\config.toml` |
-| macOS   | `$HOME/Library/Application Support` | `/Users/Tiffany/Library/Application Support`        |
-
+| OS      | Location                                             | Example                                                       |
+| ------- | ---------------------------------------------------- | ------------------------------------------------------------- |
+| Linux   | `$XDG_CONFIG_HOME/rink/config.toml`                  | `/home/tiffany/.config/rink/config.toml`                      |
+| Windows | `{FOLDERID_RoamingAppData}\rink\config.toml`         | `C:\Users\Tiffany\AppData\Roaming\rink\config.toml`           |
+| macOS   | `$HOME/Library/Application Support/rink/config.toml` | `/Users/Tiffany/Library/Application Support/rink/config.toml` |
 
 <a name="index" />
 
