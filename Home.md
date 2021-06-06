@@ -1,7 +1,8 @@
 # User Documentation
 
-[**Manual**](https://github.com/tiffany352/rink-rs/wiki/Rink-Manual)
+- [**Manual**](https://github.com/tiffany352/rink-rs/wiki/Rink-Manual) - Documentation for Rink's query language.
+- [**Config File**](https://github.com/tiffany352/rink-rs/wiki/Config-File) - Documentation for the CLI's config file.
 
 # Contribution Guide
 
-Explanation of Rink's unit definitions file and the guidelines for adding new units can be found here: https://github.com/tiffany352/rink-rs/wiki/Rink-Definitions
+- [**Unit Definitions**](https://github.com/tiffany352/rink-rs/wiki/Rink-Definitions) - Explanation of Rink's unit definitions file and guidelines for adding new units.
