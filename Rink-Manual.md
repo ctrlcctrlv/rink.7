@@ -19,6 +19,7 @@ examples of the discussed material at the top.
     7. [Powers](#expressions.powers)
     8. [Inline unit definitions](#expressions.inline)
     9. [Custom base units](#expressions.custom)
+    10. [Accessing the previous result](#expressions.ans)
 3. [Units and prefixes](#prefixes)
 4. [Top-level statements](#toplevel)
     1. [Conversions (->)](#toplevel.conversions)
@@ -276,6 +277,24 @@ for whether it exists when it is evaluated. This means you can wrap
 anything in quotes to in effect produce a new *base unit* for the
 purposes of a single calculation. This can be useful for doing
 calculations in terms of things which are otherwise dimensionless.
+
+<a name="expressions.ans">
+
+## Accessing the previous result
+
+```
+> 100 ohm + 50 ohm
+150 ohm (resistance)
+> ANS * 10 mA
+1.5 volt (electrical_potential)
+```
+
+The result of the previous query can be accessed with `_`, `ans`
+or `ANS`, which can be convenient for breaking up calculations into
+multiple steps. Note that when rink returns an error occurs, the
+previous result is kept.
+Also, currently only the results of mathematical expressions are
+stored, the results for conversions aren't.
 
 <a name="prefixes" />
 
