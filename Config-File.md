@@ -23,7 +23,7 @@ enabled = false
 # Sets the active theme.
 theme = "default"
 
-# Limits section requires Rink v7 or higher.
+# Limits section requires Rink v0.6.2 or higher.
 [limits]
 # Set to true to run queries in a child process, enabling memory limits and ctrl+C to cancel a query.
 enabled = false
