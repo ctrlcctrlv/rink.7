@@ -19,7 +19,7 @@ cache_duration = "1h"
 
 [colors]
 # Set to true to turn on colored output.
-enabled = false
+enabled = true # Defaults to false if the NO_COLOR environment variable is set.
 # Sets the active theme.
 theme = "default"
 
