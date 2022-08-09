@@ -510,6 +510,26 @@ results and showing the associated physical quantity of the unit.
 In addition to handling units, Rink is also capable of doing some
 calculations with dates and times.
 
+Converting to a timezone:
+```
+> now
+2022-08-08 21:19:56.990897100 -07:00 (now)
+> now -> "Europe/London"
+2022-08-09 05:20:03.656075600 BST (now)
+```
+
+Converting to a fixed offset:
+```
+> now -> +01:00
+2022-08-09 05:20:30.080703900 +01:00 (now)
+```
+
+Inputting a time with an offset:
+```
+> #apr 1, 2016 12:00:00 +01:00#
+2016-04-01 12:00:00 +01:00 (6 years ago)
+```
+
 <a name="substances" />
 
 # Substances
